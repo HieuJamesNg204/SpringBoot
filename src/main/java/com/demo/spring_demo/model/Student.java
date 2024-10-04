@@ -1,4 +1,4 @@
-package com.demo.spring_demo.student;
+package com.demo.spring_demo.model;
 
 import jakarta.persistence.*;
 

@@ -1,5 +1,7 @@
-package com.demo.spring_demo.student;
+package com.demo.spring_demo.configuration;
 
+import com.demo.spring_demo.model.Student;
+import com.demo.spring_demo.repository.StudentRepo;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
