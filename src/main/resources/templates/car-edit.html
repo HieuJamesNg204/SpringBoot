@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Edit Car</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h2>Edit Car</h2>
+    <form th:action="@{/cars}" th:object="${car}" method="post" class="mt-4">
+        <input type="hidden" th:field="*{id}" />
+
+        <div class="form-group">
+            <label for="make">Make:</label>
+            <input type="text" th:field="*{make}" class="form-control" id="make" required="required"/>
+        </div>
+
+        <div class="form-group">
+            <label for="model">Model:</label>
+            <input type="text" th:field="*{model}" class="form-control" id="model" required="required"/>
+        </div>
+
+        <div class="form-group">
+            <label for="year">Year:</label>
+            <input type="number" th:field="*{year}" class="form-control" id="year" required="required"/>
+        </div>
+
+        <div class="form-group">
+            <label for="color">Color:</label>
+            <input type="text" th:field="*{color}" class="form-control" id="color" required="required"/>
+        </div>
+
+        <div class="form-group">
+            <label for="category">Category:</label>
+            <select th:field="*{category}" class="form-control" id="category" required="required">
+                <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-success">Save Changes</button>
+        <a href="/cars" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+</body>
+</html>

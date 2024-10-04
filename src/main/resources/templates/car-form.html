@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title th:text="${car.id != null ? 'Edit Car' : 'Add Car'}"></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 th:text="${car.id != null ? 'Edit Car' : 'Add Car'}"></h1>
+    <form th:action="@{/cars}" th:object="${car}" method="post" class="mt-4">
+        <input type="hidden" th:field="*{id}" />
+
+        <div class="form-group">
+            <label for="make">Make:</label>
+            <input type="text" th:field="*{make}" class="form-control" id="make" placeholder="Enter make" required="required"/>
+        </div>
+
+        <div class="form-group">
+            <label for="model">Model:</label>
+            <input type="text" th:field="*{model}" class="form-control" id="model" placeholder="Enter model" required="required"/>
+        </div>
+
+        <div class="form-group">
+            <label for="year">Year:</label>
+            <input type="number" th:field="*{year}" class="form-control" id="year" placeholder="Enter year" required="required"/>
+        </div>
+
+        <div class="form-group">
+            <label for="color">Color:</label>
+            <input type="text" th:field="*{color}" class="form-control" id="color" placeholder="Enter color" required="required"/>
+        </div>
+
+        <div class="form-group">
+            <label for="category">Category:</label>
+            <select th:field="*{category}" class="form-control" id="category" required="required">
+                <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-success">Submit</button>
+        <a href="/cars" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
